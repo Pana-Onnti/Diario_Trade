@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Registro</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.bundle.min.js" integrity="sha384-qKXV1j0HvMUeCBQ+QVp7JcfGl760yU08IQ+GpUo5hlbpg51QRiuqHAJz8+BrxE/N" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+  
+
+
+</head>
+<header>
+    <div class="container-fluid">
+
+    </div>
+</header>
+
+<body style="background-color: #0b1118;">
+
+ 
+
+
+    <div class=" h-100 pt-5 ">
+        <div class="container-fluid w-50 h-50 justify-content-center align-content-center fon d-flex text-white  rounded-top pt-3"
+            style="background-color: #1B2631;">
+            <h1 class="display-5">
+                Crear nuevo trade
+            </h1>
+        </div>
+        <div class="container-fluid w-50 h-50 justify-content-center align-content-center  d-flex text-white-50 p-3 border-1 rounded-bottom"
+            style="background-color: #1B2631;">
+            <form action='/registro_trade' method='POST'>
+                <div class="row">
+                    <div class="col-md-6">
+                        <p>Market   </p>        
+                        <select name="Market"  class="text-black-50 font-monospace" required style="min-height: 30px; max-height: 30px; width: 189px;">
+                        <option  value="Option 1">STOCK</option>
+                        <option value="Option 2">FOREX</option>
+                        <option value="Option 3">CRYPTO</option>
+                        <option value="Option 4">OPTIONS</option>
+                        <option value="Option 5">FUTURES</option>
+                        </select>
+                        <p>Ticker </p>
+                        <input type="text" name="Ticker" required />
+                        <p>Fecha_Entrada </p>
+                        <input type="datetime-local" id="datetime-local" name="Fecha_Entrada" required />
+                        <p>Fecha_Salida </p>
+                        <input type="datetime-local" id="datetime-local" name="Fecha_Salida" required />
+                        <p>Precio_Entrada </p>
+                        <input type="text" name="Precio_Entrada" required />
+                        <p>Precio_Salida </p>
+                        <input type="text" name="Precio_Salida" required />
+
+                    </div>
+                    <div class="col-md-6">
+
+
+                        <p>Direccion </p>
+                        <input type="number" name="Direccion" required />
+                        <p>Comision </p>
+                        <input type="number" name="Comision" required />
+                        <p>Id_Notas </p>
+                        <input type="number" name="Id_Notas" required />
+                        <p>Id_Cuenta </p>
+                        <input type="number" name="Id_Cuenta" required />
+                        <p>Balance </p>
+                        <input type="number" name="Balance" required />
+                        <!--
+                            <p>Estado </p>
+                        <input type="number" name="Estado" required />
+                        -->
+                        
+                        <p>Email </p>
+                        <input type="text" name="Email" required />
+                        
+                    </div>
+                </div>
+                    <p> </p>
+                    <input class="w-100" type="submit" value="Submit" required   />
+            </form>
+        </div>
+    </div>  
+    <div class="container-fluid w-50 h-50 justify-content-center align-content-center  d-flex text-white-50 p-3 border-1 rounded-bottom"
+            style="background-color: #1B2631;">
+        <h6 class="text-white-50 font-monospace  ">{{mensaje}}</h6>
+    </div>
+
+
+
+<!--    
+   <div id="mensaje-confirmacion"></div>
+   <div class="modal fade" id="modal-confirmacion" tabindex="-1" aria-labelledby="modal-confirmacion-label"
+       aria-hidden="true">
+       <div class="modal-dialog">
+           <div class="modal-content">
+               <div class="modal-header">
+                   <h5 class="modal-title" id="modal-confirmacion-label">Formulario enviado correctamente</h5>
+                   <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+               </div>
+               <div class="modal-body">
+                  {{mensaje}}
+               </div>
+               <div class="modal-footer">
+                   <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+               </div>
+           </div>
+       </div>
+   </div>
+   </div>
+   
+   <script>
+       document.addEventListener('DOMContentLoaded', () => {
+           const form = document.querySelector('form');
+           const modalConfirmacion = new bootstrap.Modal(document.getElementById('modal-confirmacion'));
+
+           form.addEventListener('submit', (event) => {
+               // Agrega tu código para enviar el formulario aquí (p. ej., a través de una solicitud AJAX)
+               // ...
+               // Abre el modal de confirmación
+               modalConfirmacion.show();
+           });
+       });
+   </script>
+ -->
+
+</body>
