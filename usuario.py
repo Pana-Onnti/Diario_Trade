@@ -1,6 +1,8 @@
 import requests
 from typing import Optional,Dict,Any
 
+
+## Usuario.py module 
 def get_access_token(username: str, password: str) -> Optional[str]:
     token_url = "http://127.0.0.1:8000/jwtauth/token/"
     data = {
@@ -38,4 +40,3 @@ def get_user_email(username: str, password: str) -> Optional[str]:
             return user_data.get("Email")
 
     return None
-

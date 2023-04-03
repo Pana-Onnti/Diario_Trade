@@ -50,12 +50,31 @@ def home():
     try:
         email = get_session_data()['email']
         access_token = get_session_data()['access_token']
-   
         if access_token is not None:
-            return render_template('index.html', email=email)
+            try:
+                grafico_area  = generar_grafico_area()
+                grafico_pie = generar_grafico_pie()
+                long_bar_chart = generate_long_bar_chart()
+                dif_bar_chart= generate_dif_bar_chart()
+            except:
+                pass
+
+        return render_template('index.html', email=email,
+                                graph=grafico_area,
+                                graph1=generar_grafico_area(),
+                                graph2=generar_grafico_area(),
+                                graph3=grafico_pie,
+                                graph4=long_bar_chart,
+                                graph5=dif_bar_chart)
+                
     except:
         return redirect(url_for('login'))
+
+
+
+
 #login 
+
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     if request.method == 'POST':
@@ -74,13 +93,15 @@ def logout():
     session.pop('access_token', None)
     return redirect(url_for('login'))
 #
-
+import json
 # vistas GET
 @app.route('/trades')
 def trades_vista():
     trades_usuario = trades()
     trades_usuario = format_trades(trades_usuario)
     email = get_session_data()['email']
+    with open('trades_usuario.json', 'w') as archivo:
+        json.dump(trades_usuario, archivo)
     return render_template('trades1.html',email=email,trades=trades_usuario)
 
 
